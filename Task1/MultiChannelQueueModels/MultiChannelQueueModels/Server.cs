@@ -12,6 +12,14 @@ namespace MultiChannelQueueModels
         {
             ServiceTimeDistribution = new List<TimeDistribution>();
         }
+        public Server(int serverId , string name , double serviceEfficiency,List<TimeDistribution>serviceTimeDistribution)
+        {
+            ServerId = serverId;
+            Name = name;
+            ServiceEfficiency = serviceEfficiency;
+            ServiceTimeDistribution = new List<TimeDistribution>();
+            ServiceTimeDistribution = serviceTimeDistribution;
+        }
         public int ServerId { get; set; }
 
         public string Name { get; set; }

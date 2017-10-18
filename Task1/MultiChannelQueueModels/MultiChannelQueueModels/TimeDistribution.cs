@@ -17,13 +17,12 @@ namespace MultiChannelQueueModels
         public double MinRange { get; set; }
 
         public double MaxRange { get; set; }
-        public TimeDistribution(int Time , double Probability , double CummProbability , double MinRange , double MaxRange)
+        public TimeDistribution() { }
+        public TimeDistribution(int Time , double Probabilit)
         {
             this.Time = Time;
             this.Probability = Probability;
-            this.CummProbability = CummProbability;
-            this.MinRange = MinRange;
-            this.MaxRange = MaxRange;
+          
         }
     }
 }
