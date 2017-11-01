@@ -165,8 +165,10 @@ namespace NewspaperSellerSimulation
             var source = new BindingSource();
             source.DataSource = result;
             dataGridView4.DataSource = source;
+            sys.SimulationCases = simulation;
             string testing = TestingManager.Test(sys, Constants.FileNames.TestCase1);
             MessageBox.Show(testing);
+
 
         }
 
