@@ -160,15 +160,17 @@ namespace NewspaperSellerSimulation
             sys.PerformanceMeasures.TotalNetProfit = CalculatePerformance.netProfit(simulation);
             sys.PerformanceMeasures.DaysWithMoreDemand = CalculatePerformance.excessDemand(simulation, sys.NumOfNewspapers);
             sys.PerformanceMeasures.DaysWithUnsoldPapers = CalculatePerformance.unsoldPapers(simulation, sys.NumOfNewspapers);
-            //MessageBox.Show(a.ToString());
-            //MessageBox.Show(b.ToString());
-            //MessageBox.Show(c.ToString());
-            //MessageBox.Show(d.ToString());
-            //MessageBox.Show(E.ToString());
-            //MessageBox.Show(f.ToString());
-            //MessageBox.Show(g.ToString());
+            List<PerformanceMeasures> result = new List<PerformanceMeasures>();
+            result.Add(sys.PerformanceMeasures);
+            var source = new BindingSource();
+            source.DataSource = result;
+            dataGridView4.DataSource = source;
             
-            
+
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
