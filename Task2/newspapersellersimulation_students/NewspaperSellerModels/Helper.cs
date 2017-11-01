@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -95,20 +95,20 @@ namespace NewspaperSellerModels
                 simulation.Add(new SimulationCase());
                 simulation[i].DayNo = i + 1;
 
-                //int randomNumber = random.Next(0, 100);
-                int randomNumber = R[i];
-                // simulation[i].RandomNewsDayType = randomNumber;
-                simulation[i].RandomNewsDayType = R[i];
+                int randomNumber = random.Next(1, 100);
+                //int randomNumber = R[i];
+                 simulation[i].RandomNewsDayType = randomNumber;
+                //simulation[i].RandomNewsDayType = R[i];
                 simulation[i].NewsDayType = news_dayType(sys.DayTypeDistributions,randomNumber);
-                //andomNumber = random.Next(0, 100);
-                randomNumber = T[i];
-                //simulation[i].RandomDemand = randomNumber;
-                simulation[i].RandomDemand = T[i];
+                randomNumber = random.Next(1, 100);
+                //randomNumber = T[i];
+                simulation[i].RandomDemand = randomNumber;
+                //simulation[i].RandomDemand = T[i];
                 simulation[i].Demand = demand(randomNumber, simulation[i].NewsDayType,sys.DemandDistributions);
                 //if(simulation[i].Demand<sys.NumOfNewspapers)
-                    simulation[i].DailyCost = Math.Round(sys.NumOfNewspapers * sys.SellingPrice,2);
+                    simulation[i].DailyCost = sys.NumOfNewspapers * sys.SellingPrice;
                 if (simulation[i].Demand > sys.NumOfNewspapers)
-                { simulation[i].LostProfit = Math.Round((simulation[i].Demand - sys.NumOfNewspapers) * sys.UnitProfit,2);
+                { simulation[i].LostProfit = (simulation[i].Demand - sys.NumOfNewspapers) * sys.UnitProfit;
                     simulation[i].SalesProfit = sys.PurchasePrice * sys.NumOfNewspapers;
                 }
                 else simulation[i].LostProfit = 0;
@@ -120,7 +120,7 @@ namespace NewspaperSellerModels
        
                 if (simulation[i].Demand == sys.NumOfNewspapers)
                     simulation[i].SalesProfit = sys.PurchasePrice * sys.NumOfNewspapers;
-                simulation[i].DailyNetProfit= Math.Round(simulation[i].SalesProfit - (sys.SellingPrice * sys.NumOfNewspapers)- simulation[i].LostProfit + simulation[i].ScrapProfit,2);
+                simulation[i].DailyNetProfit= simulation[i].SalesProfit - (sys.SellingPrice * sys.NumOfNewspapers)- simulation[i].LostProfit + simulation[i].ScrapProfit;
             }
 
 
@@ -131,4 +131,3 @@ namespace NewspaperSellerModels
     }
  }
 
- 
