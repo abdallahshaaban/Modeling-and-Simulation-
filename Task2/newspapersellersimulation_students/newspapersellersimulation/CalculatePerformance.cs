@@ -71,7 +71,7 @@ namespace NewspaperSellerSimulation
             int ret = 0;
             for (int i = 0; i < simulation_table.Count; i++)
             {
-                if(simulation_table[i].Demand > numOfNewspapers)
+                if(simulation_table[i].LostProfit > 0)
                 {
                     ret = ret + 1;
                 }
@@ -84,7 +84,7 @@ namespace NewspaperSellerSimulation
             int ret = 0;
             for (int i = 0; i < simulation_table.Count; i++)
             {
-                if (simulation_table[i].Demand <= numOfNewspapers)
+                if (simulation_table[i].ScrapProfit > 0)
                 {
                     ret = ret + 1;
                 }
