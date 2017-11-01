@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NewspaperSellerTesting;
 using NewspaperSellerModels;
-
+using NewspaperSellerTesting;
 namespace NewspaperSellerSimulation
 {
     public partial class Form1 : Form
@@ -165,7 +165,8 @@ namespace NewspaperSellerSimulation
             var source = new BindingSource();
             source.DataSource = result;
             dataGridView4.DataSource = source;
-            
+            string testing = TestingManager.Test(sys, Constants.FileNames.TestCase1);
+            MessageBox.Show(testing);
 
         }
 

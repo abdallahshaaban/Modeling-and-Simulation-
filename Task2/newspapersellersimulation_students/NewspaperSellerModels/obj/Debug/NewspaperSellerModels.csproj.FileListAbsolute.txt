@@ -17,3 +17,8 @@ E:\year4\Simulation\Lab\Lab 5\newspapersellersimulation_students\NewspaperSeller
 E:\year4\Simulation\Lab\Lab 5\newspapersellersimulation_students\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.csprojResolveAssemblyReference.cache
 E:\year4\Simulation\Lab\Lab 5\newspapersellersimulation_students\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.dll
 E:\year4\Simulation\Lab\Lab 5\newspapersellersimulation_students\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.pdb
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerModels\bin\Debug\NewspaperSellerModels.dll
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerModels\bin\Debug\NewspaperSellerModels.pdb
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.csprojResolveAssemblyReference.cache
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.dll
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerModels\obj\Debug\NewspaperSellerModels.pdb

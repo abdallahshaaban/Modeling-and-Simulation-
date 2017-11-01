@@ -146,18 +146,18 @@ namespace NewspaperSellerSimulation
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1157, 9);
+            this.label3.Location = new System.Drawing.Point(1157, 53);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 13);
+            this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Purchase Price";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1157, 49);
+            this.label4.Location = new System.Drawing.Point(1157, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Selling Price";
             // 
@@ -166,7 +166,7 @@ namespace NewspaperSellerSimulation
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(1157, 94);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Scrap Price";
             // 

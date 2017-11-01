@@ -48,3 +48,15 @@ E:\year4\Simulation\Lab\Lab 5\newspapersellersimulation_students\NewspaperSeller
 E:\year4\Simulation\Lab\Lab 5\newspapersellersimulation_students\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.Properties.Resources.resources
 E:\year4\Simulation\Lab\Lab 5\newspapersellersimulation_students\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.csproj.GenerateResource.Cache
 E:\year4\Simulation\Lab\Lab 5\newspapersellersimulation_students\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.Form1.resources
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\bin\Debug\NewspaperSellerSimulation.exe.config
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.exe
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.pdb
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.csprojResolveAssemblyReference.cache
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.Form1.resources
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.Properties.Resources.resources
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.csproj.GenerateResource.Cache
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\bin\Debug\NewspaperSellerSimulation.exe
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\bin\Debug\NewspaperSellerSimulation.pdb
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\bin\Debug\NewspaperSellerModels.dll
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\bin\Debug\NewspaperSellerModels.pdb
+C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\bin\Debug\NewspaperSellerTesting.dll

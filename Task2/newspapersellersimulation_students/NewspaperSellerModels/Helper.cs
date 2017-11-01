@@ -95,14 +95,14 @@ namespace NewspaperSellerModels
                 simulation.Add(new SimulationCase());
                 simulation[i].DayNo = i + 1;
 
-                int randomNumber = random.Next(0, 100);
-                //int randomNumber = R[i];
-                 simulation[i].RandomNewsDayType = randomNumber;
+                //int randomNumber = random.Next(0, 100);
+                int randomNumber = R[i];
+                // simulation[i].RandomNewsDayType = randomNumber;
                 simulation[i].RandomNewsDayType = R[i];
                 simulation[i].NewsDayType = news_dayType(sys.DayTypeDistributions,randomNumber);
-                randomNumber = random.Next(0, 100);
-                //randomNumber = T[i];
-                simulation[i].RandomDemand = randomNumber;
+                //andomNumber = random.Next(0, 100);
+                randomNumber = T[i];
+                //simulation[i].RandomDemand = randomNumber;
                 simulation[i].RandomDemand = T[i];
                 simulation[i].Demand = demand(randomNumber, simulation[i].NewsDayType,sys.DemandDistributions);
                 simulation[i].SalesProfit = Math.Round(simulation[i].Demand * sys.UnitProfit,2);
