@@ -1,4 +1,4 @@
-﻿namespace NewspaperSellerSimulation
+namespace NewspaperSellerSimulation
 {
     partial class Form1
     {
@@ -49,9 +49,11 @@
             this.txtSellingPrice = new System.Windows.Forms.TextBox();
             this.txtScrapPrice = new System.Windows.Forms.TextBox();
             this.btnReadData = new System.Windows.Forms.Button();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -121,6 +123,7 @@
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.Size = new System.Drawing.Size(754, 377);
             this.dataGridView3.TabIndex = 2;
+            this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
             // label1
             // 
@@ -145,7 +148,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(1157, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
+            this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Purchase Price";
             // 
@@ -154,7 +157,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(1157, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Selling Price";
             // 
@@ -163,7 +166,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(1157, 94);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.Size = new System.Drawing.Size(60, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Scrap Price";
             // 
@@ -212,11 +215,20 @@
             this.btnReadData.UseVisualStyleBackColor = true;
             this.btnReadData.Click += new System.EventHandler(this.btnReadData_Click);
             // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(54, 531);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.Size = new System.Drawing.Size(447, 111);
+            this.dataGridView4.TabIndex = 14;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1446, 697);
+            this.ClientSize = new System.Drawing.Size(1362, 697);
+            this.Controls.Add(this.dataGridView4);
             this.Controls.Add(this.btnReadData);
             this.Controls.Add(this.txtScrapPrice);
             this.Controls.Add(this.txtSellingPrice);
@@ -237,6 +249,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +278,6 @@
         private System.Windows.Forms.TextBox txtSellingPrice;
         private System.Windows.Forms.TextBox txtScrapPrice;
         private System.Windows.Forms.Button btnReadData;
+        private System.Windows.Forms.DataGridView dataGridView4;
     }
 }
