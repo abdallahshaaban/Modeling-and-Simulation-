@@ -162,9 +162,9 @@ namespace NewspaperSellerSimulation
             sys.PerformanceMeasures.DaysWithUnsoldPapers = CalculatePerformance.unsoldPapers(simulation, sys.NumOfNewspapers);
             List<PerformanceMeasures> result = new List<PerformanceMeasures>();
             result.Add(sys.PerformanceMeasures);
-            //var source = new BindingSource();
-            //source.DataSource = result;
-            //dataGridView4.DataSource = source;
+            var source = new BindingSource();
+            source.DataSource = result;
+            dataGridView4.DataSource = source;
             
 
         }
