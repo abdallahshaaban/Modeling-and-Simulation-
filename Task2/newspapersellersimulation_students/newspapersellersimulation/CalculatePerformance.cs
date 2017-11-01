@@ -11,15 +11,15 @@ namespace NewspaperSellerSimulation
 {
     class CalculatePerformance
     {
-        
+
         public CalculatePerformance()
-        {   
+        {
         }
 
         public static double totalSalesRevenue(List<SimulationCase> simulation_table)
         {
             double ret = 0;
-            for(int i = 0; i < simulation_table.Count; i++)
+            for (int i = 0; i < simulation_table.Count; i++)
             {
                 ret += simulation_table[i].SalesProfit;
             }
@@ -71,7 +71,7 @@ namespace NewspaperSellerSimulation
             int ret = 0;
             for (int i = 0; i < simulation_table.Count; i++)
             {
-                if(simulation_table[i].LostProfit > 0)
+                if (simulation_table[i].LostProfit > 0)
                 {
                     ret = ret + 1;
                 }
@@ -91,7 +91,7 @@ namespace NewspaperSellerSimulation
             }
             return ret;
         }
-        
+
 
     }
 }
