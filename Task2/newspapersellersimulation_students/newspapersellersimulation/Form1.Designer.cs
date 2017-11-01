@@ -281,3 +281,4 @@ namespace NewspaperSellerSimulation
         private System.Windows.Forms.DataGridView dataGridView4;
     }
 }
+ 
