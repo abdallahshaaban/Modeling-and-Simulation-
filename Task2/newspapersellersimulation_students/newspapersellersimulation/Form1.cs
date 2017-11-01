@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -153,7 +153,23 @@ namespace NewspaperSellerSimulation
             sys.UnitProfit = sys.PurchasePrice - sys.SellingPrice;
             List<SimulationCase> simulation = Helper.simulate(sys);
             dataGridView3.DataSource = simulation;
-           
+            sys.PerformanceMeasures.TotalSalesProfit = CalculatePerformance.totalSalesRevenue(simulation);
+            sys.PerformanceMeasures.TotalCost = CalculatePerformance.totalCostOfNewspapers(simulation);
+            sys.PerformanceMeasures.TotalLostProfit = CalculatePerformance.totalLostProfit(simulation);
+            sys.PerformanceMeasures.TotalScrapProfit = CalculatePerformance.totalSalvage(simulation);
+            sys.PerformanceMeasures.TotalNetProfit = CalculatePerformance.netProfit(simulation);
+            sys.PerformanceMeasures.DaysWithMoreDemand = CalculatePerformance.excessDemand(simulation, sys.NumOfNewspapers);
+            sys.PerformanceMeasures.DaysWithUnsoldPapers = CalculatePerformance.unsoldPapers(simulation, sys.NumOfNewspapers);
+            //MessageBox.Show(a.ToString());
+            //MessageBox.Show(b.ToString());
+            //MessageBox.Show(c.ToString());
+            //MessageBox.Show(d.ToString());
+            //MessageBox.Show(E.ToString());
+            //MessageBox.Show(f.ToString());
+            //MessageBox.Show(g.ToString());
+            
+            
+
         }
     }
 }
