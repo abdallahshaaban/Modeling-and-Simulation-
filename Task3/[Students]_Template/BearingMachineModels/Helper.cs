@@ -56,7 +56,11 @@ namespace BearingMachineModels
                     while (lines[i] != "")
                     {
                         string[] dist = lines[i].Split(',');
-                        SimSystem.DelayTimeDistribution.Add(new TimeDistribution(Int32.Parse(dist[0]), decimal.Parse(dist[1])));
+                        TimeDistribution TimeDitribution = new TimeDistribution();
+                        TimeDitribution.Time = Int32.Parse(dist[0]);
+                        TimeDitribution.Probability = decimal.Parse(dist[1]);
+                        SimSystem.DelayTimeDistribution.Add(TimeDitribution);
+                        //SimSystem.DelayTimeDistribution.Add(new TimeDistribution(Int32.Parse(dist[0]), decimal.Parse(dist[1])));
                         i++;
                     }
                 }
@@ -66,7 +70,11 @@ namespace BearingMachineModels
                     while (i < lines.Count())
                     {
                         string[] dist = lines[i].Split(',');
-                        SimSystem.BearingLifeDistribution.Add(new TimeDistribution(Int32.Parse(dist[0]), decimal.Parse(dist[1])));
+                        TimeDistribution TimeDitribution = new TimeDistribution();
+                        TimeDitribution.Time = Int32.Parse(dist[0]);
+                        TimeDitribution.Probability = decimal.Parse(dist[1]);
+                        SimSystem.BearingLifeDistribution.Add(TimeDitribution);
+                        //SimSystem.BearingLifeDistribution.Add(new TimeDistribution(Int32.Parse(dist[0]), decimal.Parse(dist[1])));
                         i++;
                     }
                     break;
