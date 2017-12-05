@@ -60,3 +60,6 @@ C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersell
 C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\bin\Debug\NewspaperSellerModels.dll
 C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\bin\Debug\NewspaperSellerModels.pdb
 C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\bin\Debug\NewspaperSellerTesting.dll
+C:\Users\Lenovo-PC\Desktop\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\bin\Debug\NewspaperSellerSimulation.exe.config
+C:\Users\Lenovo-PC\Desktop\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.exe
+C:\Users\Lenovo-PC\Desktop\Modeling-and-Simulation-\Task2\newspapersellersimulation_students\NewspaperSellerSimulation\obj\Debug\NewspaperSellerSimulation.pdb
