@@ -12,12 +12,5 @@ namespace BearingMachineModels
         public int AccumulatedHours { get; set; }
         public int RandomDelay { get; set; }
         public int Delay { get; set; }
-        public CurrentSimulationCase(Bearing Bearing, int AccumulatedHours, int RandomDelay, int Delay)
-        {
-            this.Bearing = Bearing;
-            this.AccumulatedHours = AccumulatedHours;
-            this.RandomDelay = RandomDelay;
-            this.Delay = Delay;
-        }
     }
 }

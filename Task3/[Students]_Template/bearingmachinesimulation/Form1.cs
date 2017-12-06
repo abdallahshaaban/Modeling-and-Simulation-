@@ -18,7 +18,6 @@ namespace BearingMachineSimulation
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             string TestCasePath = txttestcase.Text.ToString();
@@ -26,18 +25,6 @@ namespace BearingMachineSimulation
             Display(SimSystem.StartSimulation(TestCasePath) , SimSystem);
             string TestResult = TestingManager.Test(SimSystem, Constants.FileNames.TestCase1);
             MessageBox.Show(TestResult);
-            //For Testing
-            /*
-            MessageBox.Show(SimSystem.DowntimeCost.ToString());
-            MessageBox.Show(SimSystem.RepairPersonCost.ToString());
-            MessageBox.Show(SimSystem.BearingCost.ToString());
-            MessageBox.Show(SimSystem.NumberOfHours.ToString());
-            MessageBox.Show(SimSystem.NumberOfBearings.ToString());
-            MessageBox.Show(SimSystem.RepairTimeForOneBearing.ToString());
-            MessageBox.Show(SimSystem.RepairTimeForAllBearings.ToString());
-            for(int i=0; i<SimSystem.DelayTimeDistribution.Count(); i++) MessageBox.Show(SimSystem.DelayTimeDistribution[i].Time.ToString() + " " + SimSystem.DelayTimeDistribution[i].Probability.ToString() + " " + SimSystem.DelayTimeDistribution[i].CummProbability.ToString() + " " + SimSystem.DelayTimeDistribution[i].MinRange.ToString() + " " + SimSystem.DelayTimeDistribution[i].MaxRange.ToString());
-            for (int i = 0; i < SimSystem.BearingLifeDistribution.Count(); i++) MessageBox.Show(SimSystem.BearingLifeDistribution[i].Time.ToString() + " " + SimSystem.BearingLifeDistribution[i].Probability.ToString() + " " + SimSystem.BearingLifeDistribution[i].CummProbability.ToString() + " " + SimSystem.BearingLifeDistribution[i].MinRange.ToString() + " " + SimSystem.BearingLifeDistribution[i].MaxRange.ToString());
-            */
         }
         void Display(BearingMachineModels.SimulationOutput SimOutput , SimulationSystem SimSystem)
         {
@@ -51,3 +38,15 @@ namespace BearingMachineSimulation
         }
     }
 }
+//For Testing
+/*C:\Users\Lenovo-PC\Desktop\Modeling-and-Simulation-\Task3\[Students]_Template\bearingmachinesimulation\TestCases\TestCase1.txt
+MessageBox.Show(SimSystem.DowntimeCost.ToString());
+MessageBox.Show(SimSystem.RepairPersonCost.ToString());
+MessageBox.Show(SimSystem.BearingCost.ToString());
+MessageBox.Show(SimSystem.NumberOfHours.ToString());
+MessageBox.Show(SimSystem.NumberOfBearings.ToString());
+MessageBox.Show(SimSystem.RepairTimeForOneBearing.ToString());
+MessageBox.Show(SimSystem.RepairTimeForAllBearings.ToString());
+for(int i=0; i<SimSystem.DelayTimeDistribution.Count(); i++) MessageBox.Show(SimSystem.DelayTimeDistribution[i].Time.ToString() + " " + SimSystem.DelayTimeDistribution[i].Probability.ToString() + " " + SimSystem.DelayTimeDistribution[i].CummProbability.ToString() + " " + SimSystem.DelayTimeDistribution[i].MinRange.ToString() + " " + SimSystem.DelayTimeDistribution[i].MaxRange.ToString());
+for (int i = 0; i < SimSystem.BearingLifeDistribution.Count(); i++) MessageBox.Show(SimSystem.BearingLifeDistribution[i].Time.ToString() + " " + SimSystem.BearingLifeDistribution[i].Probability.ToString() + " " + SimSystem.BearingLifeDistribution[i].CummProbability.ToString() + " " + SimSystem.BearingLifeDistribution[i].MinRange.ToString() + " " + SimSystem.BearingLifeDistribution[i].MaxRange.ToString());
+*/

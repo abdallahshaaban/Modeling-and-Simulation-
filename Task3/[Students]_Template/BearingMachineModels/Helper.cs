@@ -60,7 +60,6 @@ namespace BearingMachineModels
                         TimeDitribution.Time = Int32.Parse(dist[0]);
                         TimeDitribution.Probability = decimal.Parse(dist[1]);
                         SimSystem.DelayTimeDistribution.Add(TimeDitribution);
-                        //SimSystem.DelayTimeDistribution.Add(new TimeDistribution(Int32.Parse(dist[0]), decimal.Parse(dist[1])));
                         i++;
                     }
                 }
@@ -74,7 +73,6 @@ namespace BearingMachineModels
                         TimeDitribution.Time = Int32.Parse(dist[0]);
                         TimeDitribution.Probability = decimal.Parse(dist[1]);
                         SimSystem.BearingLifeDistribution.Add(TimeDitribution);
-                        //SimSystem.BearingLifeDistribution.Add(new TimeDistribution(Int32.Parse(dist[0]), decimal.Parse(dist[1])));
                         i++;
                     }
                     break;
@@ -99,6 +97,7 @@ namespace BearingMachineModels
             if (cum == 1)
             {
                 int PrevEnd = 0;
+                MaxPase = 100;
                 for (int i = 0; i < l.Count(); i++)
                 {
                     l[i].MinRange = PrevEnd + 1;
@@ -150,7 +149,16 @@ namespace BearingMachineModels
                     int DelayTime = GetTime(RndDelayTime, SimSystem.DelayTimeDistribution);
                     AccumulatedHours += LifeTime;
                     TotalDelay += DelayTime;
-                    SimSystem.CurrentSimulationCases.Add(new CurrentSimulationCase(new Bearing(index , RndLifeTime , LifeTime) , AccumulatedHours , RndDelayTime , DelayTime));
+                    CurrentSimulationCase CSC = new CurrentSimulationCase();
+                    Bearing bearing = new Bearing();
+                    bearing.Index = i;
+                    bearing.RandomHours = RndLifeTime;
+                    bearing.Hours = LifeTime;
+                    CSC.Bearing = bearing;
+                    CSC.AccumulatedHours = AccumulatedHours;
+                    CSC.RandomDelay = RndDelayTime;
+                    CSC.Delay = DelayTime;
+                    SimSystem.CurrentSimulationCases.Add(CSC);
                     dt.Rows.Add(index.ToString() , RndLifeTime.ToString()  , LifeTime.ToString() , AccumulatedHours.ToString() , RndDelayTime.ToString() , DelayTime.ToString());
                     index++;
                     NumberOfChangedBearings++;
@@ -174,7 +182,7 @@ namespace BearingMachineModels
             pdt.Rows.Add("Cost of delay time", SimSystem.CurrentPerformanceMeasures.DelayCost.ToString() + '$');
             SimSystem.CurrentPerformanceMeasures.DowntimeCost = NumberOfChangedBearings * SimSystem.RepairTimeForOneBearing * SimSystem.DowntimeCost;
             pdt.Rows.Add("Cost of downtime during repair", SimSystem.CurrentPerformanceMeasures.DowntimeCost.ToString() + '$');
-            SimSystem.CurrentPerformanceMeasures.RepairPersonCost = ((decimal)(NumberOfChangedBearings * SimSystem.RepairTimeForOneBearing) / 60) * SimSystem.RepairPersonCost;
+            SimSystem.CurrentPerformanceMeasures.RepairPersonCost = (NumberOfChangedBearings * SimSystem.RepairTimeForOneBearing)* ((decimal)SimSystem.RepairPersonCost / 60);
             pdt.Rows.Add("Cost of repairpersons", SimSystem.CurrentPerformanceMeasures.RepairPersonCost.ToString() + '$');
             SimSystem.CurrentPerformanceMeasures.TotalCost = SimSystem.CurrentPerformanceMeasures.BearingCost + SimSystem.CurrentPerformanceMeasures.DelayCost + SimSystem.CurrentPerformanceMeasures.DowntimeCost + SimSystem.CurrentPerformanceMeasures.RepairPersonCost;
             pdt.Rows.Add("Total cost", SimSystem.CurrentPerformanceMeasures.TotalCost.ToString() + '$');
@@ -217,7 +225,11 @@ namespace BearingMachineModels
                     {
                         int RndLifeTime = rnd1.Next(1, SimSystem.BearingLifeDistribution[SimSystem.BearingLifeDistribution.Count - 1].MaxRange);
                         int LifeTime = GetTime(RndLifeTime, SimSystem.BearingLifeDistribution);
-                        Bearings.Add(new Bearing(index, RndLifeTime, LifeTime));
+                        Bearing bearing = new Bearing();
+                        bearing.Index = i;
+                        bearing.RandomHours = RndLifeTime;
+                        bearing.Hours = LifeTime;
+                        Bearings.Add(bearing);
                         if(LifeTime < MnLife)
                         {
                             MnLife = LifeTime;
@@ -228,7 +240,13 @@ namespace BearingMachineModels
                 int RndDelayTime = rnd2.Next(1, SimSystem.DelayTimeDistribution[SimSystem.DelayTimeDistribution.Count - 1].MaxRange);
                 int DelayTime = GetTime(RndDelayTime, SimSystem.DelayTimeDistribution);
                 TotalDelayTime += DelayTime;
-                SimSystem.ProposedSimulationCases.Add(new ProposedSimulationCase(Bearings , MnLife , AccumulatedHours , RndDelayTime , DelayTime));
+                ProposedSimulationCase PSC = new ProposedSimulationCase();
+                PSC.Bearings = Bearings;
+                PSC.FirstFailure = MnLife;
+                PSC.AccumulatedHours = AccumulatedHours;
+                PSC.RandomDelay = RndDelayTime;
+                PSC.Delay = DelayTime;
+                SimSystem.ProposedSimulationCases.Add(PSC);
                 DataRow dr = dt.NewRow();
                 dr["Index"] = index.ToString();
                 for (int i = 0; i < Bearings.Count() ; i++)
@@ -243,7 +261,7 @@ namespace BearingMachineModels
                 dt.Rows.Add(dr);
                 index++;
             }
-            DataRow rw = dt.NewRow();
+            DataRow rw =  dt.NewRow();
             rw["Index"] = "-";
             for (int i = 0; i < SimSystem.NumberOfBearings; i++)
             {
@@ -263,13 +281,13 @@ namespace BearingMachineModels
             DataTable pdt = new DataTable();
             pdt.Columns.Add("Cost Type");
             pdt.Columns.Add("Value");
-            SimSystem.ProposedPerformanceMeasures.BearingCost = (NumberOfChangedBearings*3) * SimSystem.BearingCost;
+            SimSystem.ProposedPerformanceMeasures.BearingCost = (NumberOfChangedBearings*SimSystem.NumberOfBearings) * SimSystem.BearingCost;
             pdt.Rows.Add("Cost of bearings", SimSystem.ProposedPerformanceMeasures.BearingCost.ToString() + '$');
             SimSystem.ProposedPerformanceMeasures.DelayCost = TotalDelayTime * SimSystem.DowntimeCost;
             pdt.Rows.Add("Cost of delay time", SimSystem.ProposedPerformanceMeasures.DelayCost.ToString() + '$');
             SimSystem.ProposedPerformanceMeasures.DowntimeCost = NumberOfChangedBearings * SimSystem.RepairTimeForAllBearings * SimSystem.DowntimeCost;
             pdt.Rows.Add("Cost of downtime during repair", SimSystem.ProposedPerformanceMeasures.DowntimeCost.ToString() + '$');
-            SimSystem.ProposedPerformanceMeasures.RepairPersonCost = ((decimal)(NumberOfChangedBearings * SimSystem.RepairTimeForAllBearings) / 60) * SimSystem.RepairPersonCost;
+            SimSystem.ProposedPerformanceMeasures.RepairPersonCost = (NumberOfChangedBearings * SimSystem.RepairTimeForAllBearings) * ((decimal)SimSystem.RepairPersonCost/60);
             pdt.Rows.Add("Cost of repairpersons", SimSystem.ProposedPerformanceMeasures.RepairPersonCost.ToString() + '$');
             SimSystem.ProposedPerformanceMeasures.TotalCost = SimSystem.ProposedPerformanceMeasures.BearingCost + SimSystem.ProposedPerformanceMeasures.DelayCost + SimSystem.ProposedPerformanceMeasures.DowntimeCost + SimSystem.ProposedPerformanceMeasures.RepairPersonCost;
             pdt.Rows.Add("Total cost", SimSystem.ProposedPerformanceMeasures.TotalCost.ToString() + '$');

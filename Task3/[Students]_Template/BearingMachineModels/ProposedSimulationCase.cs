@@ -8,14 +8,9 @@ namespace BearingMachineModels
 {
     public class ProposedSimulationCase
     {
-        public ProposedSimulationCase(List<Bearing> Bearings , int FirstFailure , int AccumulatedHours , int RandomDelay , int Delay)
+        public ProposedSimulationCase()
         {
-            Bearings = new List<Bearing>();
-            this.Bearings = Bearings;
-            this.FirstFailure = FirstFailure;
-            this.AccumulatedHours = AccumulatedHours;
-            this.RandomDelay = RandomDelay;
-            this.Delay = Delay;
+                Bearings = new List<Bearing>();
         }
         public List<Bearing> Bearings { get; set; }
         public int FirstFailure { get; set; }

@@ -11,11 +11,5 @@ namespace BearingMachineModels
         public int Index { get; set; }
         public int RandomHours { get; set; }
         public int Hours { get; set; }
-        public Bearing(int Index , int RandomHours , int Hours)
-        {
-            this.Index = Index;
-            this.RandomHours = RandomHours;
-            this.Hours = Hours;
-        }
     }
 }
