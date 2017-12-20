@@ -111,6 +111,7 @@ namespace NewspaperSellerSimulation
                 else { MessageBox.Show("cumulative probability is NOT equal 1"); }
             }
         }
+
         private void btnReadData_Click(object sender, EventArgs e)
         {
             NewspaperSellerModels.System sys = new NewspaperSellerModels.System();
@@ -143,30 +144,42 @@ namespace NewspaperSellerSimulation
                 
             }
             */
-            sys.NumOfNewspapers = Int32.Parse( txtNumOfNewpapers.Text.ToString());
-            sys.NumOfRecords = Int32.Parse(txtNumOfDays.Text.ToString());
-            sys.PurchasePrice= Math.Round(float.Parse(txtPurchasePrice.Text.ToString()),5);
-            sys.ScrapPrice = Math.Round(float.Parse(txtScrapPrice.Text.ToString()),5);
-            sys.SellingPrice = Math.Round(float.Parse(txtSellingPrice.Text.ToString()),5);
-            sys.DayTypeDistributions = dayTypeDis;
-            sys.DemandDistributions = demandDis;
-            sys.UnitProfit = sys.PurchasePrice - sys.SellingPrice;
-            List<SimulationCase> simulation = Helper.simulate(sys);
-            dataGridView3.DataSource = simulation;
-            sys.PerformanceMeasures.TotalSalesProfit = CalculatePerformance.totalSalesRevenue(simulation);
-            sys.PerformanceMeasures.TotalCost = CalculatePerformance.totalCostOfNewspapers(simulation);
-            sys.PerformanceMeasures.TotalLostProfit = CalculatePerformance.totalLostProfit(simulation);
-            sys.PerformanceMeasures.TotalScrapProfit = CalculatePerformance.totalSalvage(simulation);
-            sys.PerformanceMeasures.TotalNetProfit = CalculatePerformance.netProfit(simulation);
-            sys.PerformanceMeasures.DaysWithMoreDemand = CalculatePerformance.excessDemand(simulation, sys.NumOfNewspapers);
-            sys.PerformanceMeasures.DaysWithUnsoldPapers = CalculatePerformance.unsoldPapers(simulation, sys.NumOfNewspapers);
-            List<PerformanceMeasures> result = new List<PerformanceMeasures>();
-            result.Add(sys.PerformanceMeasures);
-            var source = new BindingSource();
-            source.DataSource = result;
-            dataGridView4.DataSource = source;
-            sys.SimulationCases = simulation;
-            string testing = TestingManager.Test(sys, Constants.FileNames.TestCase1);
+            //sys.NumOfNewspapers = Int32.Parse( txtNumOfNewpapers.Text.ToString());
+            double max = 0, num = 0;
+           // MessageBox.Show(dataGridView5.Rows.Count.ToString());
+            for (int i = 0; i < dataGridView5.Rows.Count -1; ++i)
+            {
+                sys.NumOfNewspapers = Int32.Parse(dataGridView5.Rows[i].Cells[0].Value.ToString());
+                sys.NumOfRecords = Int32.Parse(txtNumOfDays.Text.ToString());
+                sys.PurchasePrice = Math.Round(float.Parse(txtPurchasePrice.Text.ToString()), 5);
+                sys.ScrapPrice = Math.Round(float.Parse(txtScrapPrice.Text.ToString()), 5);
+                sys.SellingPrice = Math.Round(float.Parse(txtSellingPrice.Text.ToString()), 5);
+                sys.DayTypeDistributions = dayTypeDis;
+                sys.DemandDistributions = demandDis;
+                sys.UnitProfit = sys.PurchasePrice - sys.SellingPrice;
+                List<SimulationCase> simulation = Helper.simulate(sys);
+                dataGridView3.DataSource = simulation;
+                sys.PerformanceMeasures.TotalSalesProfit = CalculatePerformance.totalSalesRevenue(simulation);
+                sys.PerformanceMeasures.TotalCost = CalculatePerformance.totalCostOfNewspapers(simulation);
+                sys.PerformanceMeasures.TotalLostProfit = CalculatePerformance.totalLostProfit(simulation);
+                sys.PerformanceMeasures.TotalScrapProfit = CalculatePerformance.totalSalvage(simulation);
+                sys.PerformanceMeasures.TotalNetProfit = CalculatePerformance.netProfit(simulation);
+                sys.PerformanceMeasures.DaysWithMoreDemand = CalculatePerformance.excessDemand(simulation, sys.NumOfNewspapers);
+                sys.PerformanceMeasures.DaysWithUnsoldPapers = CalculatePerformance.unsoldPapers(simulation, sys.NumOfNewspapers);
+                List<PerformanceMeasures> result = new List<PerformanceMeasures>();
+                result.Add(sys.PerformanceMeasures);
+                var source = new BindingSource();
+                source.DataSource = result;
+                dataGridView4.DataSource = source;
+                sys.SimulationCases = simulation;
+                if (sys.PerformanceMeasures.TotalNetProfit > max) {
+                    max = sys.PerformanceMeasures.TotalNetProfit;
+                    num = Int32.Parse(dataGridView5.Rows[i].Cells[0].Value.ToString());
+
+                }
+            }
+            MessageBox.Show(num.ToString());
+            string testing = TestingManager.Test(sys, Constants.FileNames.TestCase3);
             MessageBox.Show(testing);
 
 
@@ -174,6 +187,64 @@ namespace NewspaperSellerSimulation
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+          
+            string fileName;
+            fileName = txtFileName.Text;
+            string[] lines = System.IO.File.ReadAllLines(fileName);
+
+            // Display the file contents by using a foreach loop.
+            //System.Console.WriteLine("Contents of WriteLines2.txt = ");
+            for (int i = 0; i< lines.Count();++i)
+            {
+                // Use a tab to indent each line of the file.
+                if (lines[i] == "NumOfNewspapers") txtNumOfNewpapers.Text = lines[i + 1];
+                if (lines[i] == "NumOfRecords") txtNumOfDays.Text = lines[i + 1];
+                if (lines[i] == "PurchasePrice") txtSellingPrice.Text = lines[i + 1];
+                if (lines[i] == "ScrapPrice") txtScrapPrice.Text = lines[i + 1];
+                if (lines[i] == "SellingPrice") txtPurchasePrice.Text = lines[i + 1];
+                if (lines[i] == "DayTypeDistributions") {
+                
+                    string[] values = lines[i+1].Split(',');
+                    List<float> value=new List<float>(values.Length) ;
+                    dataGridView2.Rows.Add();
+
+                    for (int j = 0; j < values.Length; j++)
+                    {
+                        value.Add(new float());
+                        value[j] = float.Parse(values[j]);
+                        dataGridView2.Rows[0].Cells[j].Value = value[j];
+                    }
+                // dataGridView2.DataSource=value;
+                }
+                if (lines[i] == "DemandDistributions")
+                {
+                    int q = 0;
+                    for (int j = i + 1; j < lines.Count(); ++j)
+                    {
+                        string[] values = lines[j].Split(',');
+                        List<float> value = new List<float>(values.Length);
+                        dataGridView1.Rows.Add();
+                        for (int k = 0; k < values.Length; k++)
+                        {
+                            value.Add(new float());
+                            value[k] = float.Parse(values[k]);
+                            dataGridView1.Rows[q].Cells[k].Value = value[k];
+                        }
+                        
+                        q++;
+                        //dataGridView1.DataSource = value;
+
+
+                    }
+                }
+            }
+
+
 
         }
     }
