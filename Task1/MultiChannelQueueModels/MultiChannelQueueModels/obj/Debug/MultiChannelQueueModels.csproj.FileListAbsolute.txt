@@ -16,3 +16,6 @@ C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task1\MultiChannelQ
 C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task1\MultiChannelQueueModels\MultiChannelQueueModels\obj\Debug\MultiChannelQueueModels.Form1.resources
 C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task1\MultiChannelQueueModels\MultiChannelQueueModels\obj\Debug\MultiChannelQueueModels.Properties.Resources.resources
 C:\Users\abdallah\Desktop\projects1\Modeling-and-Simulation-\Task1\MultiChannelQueueModels\MultiChannelQueueModels\obj\Debug\MultiChannelQueueModels.csproj.GenerateResource.Cache
+C:\Users\Lenovo-PC\Desktop\Modeling-and-Simulation-\Task1\MultiChannelQueueModels\MultiChannelQueueModels\bin\Debug\MultiChannelQueueModels.exe.config
+C:\Users\Lenovo-PC\Desktop\Modeling-and-Simulation-\Task1\MultiChannelQueueModels\MultiChannelQueueModels\obj\Debug\MultiChannelQueueModels.exe
+C:\Users\Lenovo-PC\Desktop\Modeling-and-Simulation-\Task1\MultiChannelQueueModels\MultiChannelQueueModels\obj\Debug\MultiChannelQueueModels.pdb
