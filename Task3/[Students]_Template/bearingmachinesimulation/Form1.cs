@@ -23,7 +23,7 @@ namespace BearingMachineSimulation
             string TestCasePath = txttestcase.Text.ToString();
             SimulationSystem SimSystem = new SimulationSystem();
             Display(SimSystem.StartSimulation(TestCasePath) , SimSystem);
-            string TestResult = TestingManager.Test(SimSystem, Constants.FileNames.TestCase1);
+            string TestResult = TestingManager.Test(SimSystem, Constants.FileNames.TestCase3);
             MessageBox.Show(TestResult);
         }
         void Display(BearingMachineModels.SimulationOutput SimOutput , SimulationSystem SimSystem)

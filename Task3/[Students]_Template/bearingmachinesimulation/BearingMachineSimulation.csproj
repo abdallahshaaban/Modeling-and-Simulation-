@@ -87,6 +87,8 @@
   <ItemGroup>
     <Content Include="TestCases\ReadMe.txt" />
     <Content Include="TestCases\TestCase1.txt" />
+    <Content Include="TestCases\TestCase2.txt" />
+    <Content Include="TestCases\TestCase3.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BearingMachineModels\BearingMachineModels.csproj">
